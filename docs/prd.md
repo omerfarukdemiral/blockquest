@@ -42,5 +42,5 @@ Bu web3 projesi, kullanıcıların testnet ortamında belirli görevleri tamamla
 - **Smart Contracts:** Solidity
 - **Web3 SDKs:** Ethers.js, Web3.js
 - **Testnets:** Ethereum Goerli
-- Wallet: WalletConnect- Wagmi
-- UI Component : Tailwind
+- **UI Component:** Tailwind
+- **Wallet:** MetaMask

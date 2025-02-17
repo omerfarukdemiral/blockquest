@@ -1,17 +1,28 @@
-import { createWeb3Modal } from '@web3modal/wagmi'
+'use client'
+
+import { createConfig, http, WagmiProvider } from 'wagmi'
+import { arbitrumSepolia } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { WagmiProvider } from 'wagmi'
-import { config, projectId } from '@/config/web3'
+import { type ReactNode } from 'react'
+import { injected } from 'wagmi/connectors'
+
+const config = createConfig({
+  chains: [arbitrumSepolia],
+  connectors: [
+    injected(),
+  ],
+  transports: {
+    [arbitrumSepolia.id]: http(),
+  },
+})
 
 const queryClient = new QueryClient()
 
-createWeb3Modal({
-  wagmiConfig: config,
-  projectId,
-  enableAnalytics: true
-})
+interface Web3ProviderProps {
+  children: ReactNode
+}
 
-export function Web3Provider({ children }: { children: React.ReactNode }) {
+export function Web3Provider({ children }: Web3ProviderProps) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>

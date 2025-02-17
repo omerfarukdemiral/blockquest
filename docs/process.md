@@ -4,21 +4,19 @@
 
 ### 1. Proje Kurulumu
 - [x] Next.js 14 projesi oluşturma
-- [ ] Tailwind CSS entegrasyonu
-- [ ] Shadcn/ui kurulumu
-- [ ] Prettier ve ESLint yapılandırması
-- [ ] Klasör yapısının oluşturulması
+- [x] Tailwind CSS entegrasyonu
+- [x] Shadcn/ui kurulumu
+- [x] Prettier ve ESLint yapılandırması
+- [x] Klasör yapısının oluşturulması
 - [ ] Git kurulumu ve ilk commit
 
 ### 2. Web3 Entegrasyonu
-- [ ] WalletConnect entegrasyonu
-- [ ] Wagmi kurulumu
-- [ ] Viem entegrasyonu
-- [ ] Cüzdan bağlantı komponenti oluşturma
+- [x] MetaMask entegrasyonu
+- [x] Cüzdan bağlantı komponenti oluşturma
 
 ### 3. Temel Sayfa Yapıları
-- [ ] Layout oluşturma
-- [ ] Ana sayfa tasarımı
+- [x] Layout oluşturma
+- [x] Ana sayfa tasarımı
 - [ ] Görevler sayfası
 - [ ] Profil sayfası
 - [ ] Market sayfası
@@ -36,6 +34,12 @@
 - [ ] Frontend-kontrat bağlantısı
 
 ## Tamamlananlar
+1. Next.js 14 projesi kurulumu
+2. Temel bağımlılıkların yüklenmesi
+3. Klasör yapısının oluşturulması
+4. MetaMask entegrasyonu
+5. Cüzdan bağlantı komponenti oluşturulması
+6. Ana sayfa tasarımı
 
 ## Teknoloji Seçimleri ve Kararlar
 
@@ -46,10 +50,8 @@
 - TypeScript
 
 ### Web3 Stack
-- WalletConnect
-- Wagmi v2
-- Viem v2
-- Ethereum Goerli Testnet
+- MetaMask
+- Arbitrum Sepolia Testnet
 
 ### Stil ve Tasarım
 - Neubrutalism
@@ -63,3 +65,8 @@
 - Prettier
 - Functional Programming
 - RORO Pattern
+
+## Önemli Notlar
+1. Klasör yapısı modüler ve ölçeklenebilir şekilde tasarlandı
+2. MetaMask entegrasyonu için injected provider kullanıldı
+3. Test ağı olarak Arbitrum Sepolia kullanılıyor
