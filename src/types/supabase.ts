@@ -13,31 +13,43 @@ export interface Database {
         Row: {
           id: string
           wallet_address: string
+          nonce: string | null
+          signature: string | null
           username: string | null
+          avatar_url: string | null
           points: number
           tokens: number
           level: number
           created_at: string
+          last_login: string | null
           updated_at: string
         }
         Insert: {
-          id: string
+          id?: string
           wallet_address: string
+          nonce?: string | null
+          signature?: string | null
           username?: string | null
+          avatar_url?: string | null
           points?: number
           tokens?: number
           level?: number
           created_at?: string
+          last_login?: string | null
           updated_at?: string
         }
         Update: {
           id?: string
           wallet_address?: string
+          nonce?: string | null
+          signature?: string | null
           username?: string | null
+          avatar_url?: string | null
           points?: number
           tokens?: number
           level?: number
           created_at?: string
+          last_login?: string | null
           updated_at?: string
         }
       }

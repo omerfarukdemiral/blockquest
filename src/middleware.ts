@@ -1,26 +1,23 @@
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 const PUBLIC_ROUTES = ['/']
+const PROTECTED_ROUTES = ['/dashboard', '/quests', '/profile', '/marketplace']
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next()
-  const supabase = createMiddlewareClient({ req, res })
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
-
   const isPublicRoute = PUBLIC_ROUTES.includes(req.nextUrl.pathname)
+  const isProtectedRoute = PROTECTED_ROUTES.some(route => req.nextUrl.pathname.startsWith(route))
 
-  // If not logged in and trying to access protected route, redirect to home
-  if (!session && !isPublicRoute) {
-    return NextResponse.redirect(new URL('/', req.url))
-  }
-
-  // If logged in and trying to access public route, redirect to dashboard
-  if (session && isPublicRoute) {
-    return NextResponse.redirect(new URL('/dashboard', req.url))
+  // Sadece korumalı rotalar için kontrol yapıyoruz
+  if (isProtectedRoute) {
+    // Burada web3 cüzdan kontrolü yapılabilir
+    // Şimdilik basit bir kontrol yapıyoruz
+    const hasWallet = req.cookies.has('wallet_connected')
+    
+    if (!hasWallet) {
+      return NextResponse.redirect(new URL('/', req.url))
+    }
   }
 
   return res

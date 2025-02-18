@@ -6,14 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default function Home() {
-  const { isConnected } = useAccount()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (isConnected) {
-      router.replace('/dashboard')
-    }
-  }, [isConnected, router])
+  const { isConnected, address } = useAccount()
 
   return (
     <main className="min-h-screen bg-[#FFFBF5] overflow-hidden">
